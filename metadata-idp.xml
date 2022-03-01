@@ -1,32 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://10.2.2.195:9443/samlsso">
-  <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" validUntil="2022-03-01T11:01:10.636Z">
-    <KeyDescriptor use="signing"><KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-      <X509Data>
-        <X509Certificate>MIIDqTCCApGgAwIBAgIEXbABozANBgkqhkiG9w0BAQsFADBkMQswCQYDVQQGEwJVUzELMAkGA1UE
-CAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDTALBgNVBAoMBFdTTzIxDTALBgNVBAsMBFdT
-TzIxEjAQBgNVBAMMCWxvY2FsaG9zdDAeFw0xOTEwMjMwNzMwNDNaFw0yMjAxMjUwNzMwNDNaMGQx
-CzAJBgNVBAYTAlVTMQswCQYDVQQIDAJDQTEWMBQGA1UEBwwNTW91bnRhaW4gVmlldzENMAsGA1UE
-CgwEV1NPMjENMAsGA1UECwwEV1NPMjESMBAGA1UEAwwJbG9jYWxob3N0MIIBIjANBgkqhkiG9w0B
-AQEFAAOCAQ8AMIIBCgKCAQEAxeqoZYbQ/Sr8DOFQ+/qbEbCp6Vzb5hzH7oa3hf2FZxRKF0H6b8CO
-Mzz8+0mvEdYVvb/31jMEL2CIQhkQRol1IruD6nBOmkjuXJSBficklMaJZORhuCrB4roHxzoG19aW
-mscA0gnfBKo2oGXSjJmnZxIh+2X6syHCfyMZZ00LzDyrgoXWQXyFvCA2ax54s7sKiHOM3P4A9W4Q
-UwmoEi4HQmPgJjIM4eGVPh0GtIANN+BOQ1KkUI7OzteHCTLu3VjxM0sw8QRayZdhniPF+U9n3fa1
-mO4KLBsW4mDLjg8R/JuAGTX/SEEGj0B5HWQAP6myxKFz2xwDaCGvT+rdvkktOwIDAQABo2MwYTAU
-BgNVHREEDTALgglsb2NhbGhvc3QwHQYDVR0OBBYEFEDpLB4PDgzsdxD2FV3rVnOr/A0DMB0GA1Ud
-JQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjALBgNVHQ8EBAMCBPAwDQYJKoZIhvcNAQELBQADggEB
-AE8H/axAgXjt93HGCYGumULW2lKkgqEvXryP2QkRpbyQSsTYcL7ZLSVB7MVVHtIsHh8f1C4Xq6Qu
-8NUrqu5ZLC1pUByaqR2ZIzcj/OWLGYRjSTHSVmVIq9QqBq1j7r6f3BWqaOIiknmTzEuqIVlOTY0g
-O+SHdS62vr2FCz4yOrBEulGAvomsU8sqg4PhFnkhxI4M912Ly+2RgN9L7AkhzK+EzXY1/QtlI/Vy
-sNfS6zrHasKz6CrKKCGqQnBnSvSTyF9OR5KFHnkAwE995IZrcSQicMxsLhTMUHDLQ/gRyy7V/ZpD
-MfAWR+5OeQiNAp/bG4fjJoTdoqkul51+2bHHVrU=
-        </X509Certificate>
-      </X509Data>
-      </KeyInfo>
-    </KeyDescriptor>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://localhost:9443/samlartresolve" index="1"/>
-    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://10.2.2.195:9443/samlsso" ResponseLocation="https://10.2.2.195:9443/samlsso"/>
-    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://10.2.2.195:9443/samlsso" ResponseLocation="https://10.2.2.195:9443/samlsso"/>
-    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://10.2.2.195:9443/samlsso" ResponseLocation="https://10.2.2.195:9443/samlsso"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://10.2.2.195:9443/samlsso"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://10.2.2.195:9443/samlsso"/>
-  </IDPSSODescriptor></EntityDescriptor>
+<?xml version="1.0" encoding="UTF-8"?><EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="idp-wso2.com"><IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" validUntil="2022-03-01T15:40:56.293Z"><KeyDescriptor use="signing"><KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><X509Data><X509Certificate>MIIEOTCCAyGgAwIBAgIUL8I1MimDmOLxmyz+yPxKLDaOZJgwDQYJKoZIhvcNAQELBQAwgasxCzAJ
+BgNVBAYTAktFMRAwDgYDVQQIDAdOYWlyb2JpMRAwDgYDVQQHDAdOYWlyb2JpMRwwGgYDVQQKDBNT
+eWJ5bCBLZW55YSBMaW1pdGVkMRswGQYDVQQLDBJTb2Z0d2FyZSBTb2x1dGlvbnMxFTATBgNVBAMM
+DGlkcC13c28yLmNvbTEmMCQGCSqGSIb3DQEJARYXd2FtYm96YS5hbGxhbkBzeWJ5bC5jb20wHhcN
+MjIwMzAxMTMyNzI1WhcNMjQwNTA5MTMyNzI1WjCBqzELMAkGA1UEBhMCS0UxEDAOBgNVBAgMB05h
+aXJvYmkxEDAOBgNVBAcMB05haXJvYmkxHDAaBgNVBAoME1N5YnlsIEtlbnlhIExpbWl0ZWQxGzAZ
+BgNVBAsMElNvZnR3YXJlIFNvbHV0aW9uczEVMBMGA1UEAwwMaWRwLXdzbzIuY29tMSYwJAYJKoZI
+hvcNAQkBFhd3YW1ib3phLmFsbGFuQHN5YnlsLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBANvN82Q+Jr1yQXBXfCI382su2f4hyHuuxTR/WoTMZF331DhliPuGm/qiV+xVofkxSquI
+d7j1aXQyb0fUBS2crw0Gj2rjq4V5nIyP8N+2uRIAbIxko400f2UL5FDF6fbJ7GFP5iqB82YPtxPx
+EHyr+7J1CcAugz9RQcqFApYRqP5/5YN1f6QCU9zsmfd9v+0VHV+D5bjOL8rJMzGba6yYIK/q+zSw
+M32klzXKebM4eDbfa5RtzClzB5tCQsQRDLOBMIAa3jJrtmVCX7XXsCqJ69/+blm9bnAzeyP3misX
+mTJzIFTImr3hBQrbSpahuy2Y4+d6QS45zOY6K7CGkOwQf6sCAwEAAaNTMFEwHQYDVR0OBBYEFFcQ
+EQj6Lwspw80vYdxa5k0nGkNBMB8GA1UdIwQYMBaAFFcQEQj6Lwspw80vYdxa5k0nGkNBMA8GA1Ud
+EwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAEZQcPCHsjSCkXkWKrjHnL5HgpZQojPom8SE
+uS88DQBrh54e9bX08F2JKv+LQrRmk5gXLi1fql6his1/FoB4CzBUGAPTv+Xfx4NzegHPbVBfHkwm
+YquJV76XyB32u1+821v4MiV5/lJ9KsdgZG4BbsFffj+5yjIACr3PB3EXZeG2SpurwyCvDPtlvCKN
+0aeJiTulSApg/KKkkxXg2pam/KeEQBFzUFhN7JgL6n5RUHITAZ+FVlFmv/Fwi9pxX3VrO6Gkleac
+NJUN1F4IqJDa0UXet7Oiq9qf2fOgp/OrsxH3zY7PpsFjQs1Am5OE0CMCUQ5Ygq1E5K+xzUXSuGHk
+wZ0=</X509Certificate></X509Data></KeyInfo></KeyDescriptor><ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-wso2.com:9443/samlartresolve" index="1"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-wso2.com:9443/samlsso" ResponseLocation="https://idp-wso2.com:9443/samlsso"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-wso2.com:9443/samlsso" ResponseLocation="https://idp-wso2.com:9443/samlsso"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-wso2.com:9443/samlsso" ResponseLocation="https://idp-wso2.com:9443/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-wso2.com:9443/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-wso2.com:9443/samlsso"/></IDPSSODescriptor></EntityDescriptor>
