@@ -1,0 +1,161 @@
+[server]
+hostname = "iam-qa.kra.go.ke"
+node_ip = "127.0.0.1"
+base_path = "https://$ref{server.hostname}:${carbon.management.port}"
+
+[super_admin]
+username = "admin"
+password = "$secret{admin_password}"
+create_admin_account = true
+
+[user_store]
+type = "database_unique_id"
+
+[database.identity_db]
+type = "postgre"
+hostname = "10.180.1.156"
+name = "identity_db_qa"
+username = "iamqa_user"
+password = "$secret{db_password}"
+port = "5432"
+
+[database.shared_db]
+type = "postgre"
+hostname = "10.180.1.156"
+name = "shared_db_qa"
+username = "iamqa_user"
+password = "$secret{db_password}"
+port = "5432"
+
+[database.user]
+type = "postgre"
+hostname = "10.180.1.156"
+name = "shared_db_qa"
+username = "iamqa_user"
+password = "$secret{db_password}"
+port = "5432"
+
+[realm_manager]
+data_source = "WSO2USER_DB"
+
+[bps_database.config]
+url = "jdbc:postgresql://10.180.1.156:5432/bps_db"
+username = "iamqa_user"
+password = "$secret{db_password}"
+driver = "org.postgresql.Driver"
+
+[keystore.primary]
+file_name = "wso2carbon.jks"
+password = "$secret{keystore_password}"
+
+[truststore]
+file_name="client-truststore.jks"
+password="$secret{truststore_password}"
+type="JKS"
+
+[account_recovery.endpoint.auth]
+hash= "66cd9688a2ae068244ea01e70f0e230f5623b7fa4cdecb65070a09ec06452262"
+
+[identity.auth_framework.endpoint]
+app_password= "dashboard"
+
+[transport.https.properties]
+proxyPort="443"
+
+[fido.trusted]
+origins=["https://iam.kra.go.ke"]
+
+[authentication.authenticator.fido.parameters]
+app_id="https://iam.kra.go.ke"
+
+[identity_mgt.analytics_login_data_publisher]
+enable=true
+
+[identity_mgt.analytics_session_data_publisher] 
+enable=true
+
+[analytics]
+publish_password_grant_logins=true
+
+[cors]
+allowed_origins = [
+    "https://iam.kra.go.ke"
+]
+supported_methods = [
+    "GET",
+    "HEAD",
+    "POST",
+    "OPTIONS",
+]
+exposed_headers = [ "Location" ]
+
+[config_data]
+path = "/_system/is_as_km/config"
+
+#############################################
+
+#disable fido features
+[myaccount.security]
+disabled_features = ["security.mfa.fido"]
+
+#SMS OTP
+[authentication.authenticator.sms_otp.parameters]
+SMSOTPAuthenticationEndpointURL= "/smsotpauthenticationendpoint/smsotp.jsp"
+SMSOTPAuthenticationEndpointErrorPage= "/smsotpauthenticationendpoint/smsotpError.jsp"
+MobileNumberRegPage = "/smsotpauthenticationendpoint/mobile.jsp"
+RetryEnable = true
+ResendEnable = true
+BackupCode = true
+SMSOTPEnableByUserClaim = true
+SMSOTPMandatory = false
+CaptureAndUpdateMobileNumber = true
+SendOTPDirectlyToMobile = false
+redirectToMultiOptionPageOnFailure = false
+TokenExpiryTime = 30
+
+#add or remove TLS 1.1
+[transport.https.sslHostConfig.properties]
+protocols="TLSv1.2"
+ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF"
+
+#[system_applications]
+#read_only_apps = []
+
+#custom
+#session timeout added
+#[console]
+#session.params.userIdleTimeOut = 300
+#session.params.userIdleWarningTimeOut = 280
+#session.params.sessionRefreshTimeOut = 100
+#session.params.checkSessionInterval = 3
+
+#[myaccount]
+#session.params.userIdleTimeOut = 300
+#session.params.userIdleWarningTimeOut = 280
+#session.params.sessionRefreshTimeOut = 100
+#session.params.checkSessionInterval = 3
+
+#time out
+[session.timeout]
+idle_session_timeout= "5m"
+remember_me_session_timeout= "3m"
+
+#custom_secondary_user_store
+#secondaryUserstore= "DC02.kra.gov"
+#[authentication.authenticator.totp.parameters]
+#secondaryUserstore= "KRATEST.KRATEST2.gov"
+
+[authentication.consent]
+prompt= false
+
+[audit.log.contextual_param]
+params = ["remote_address"]
+#############################################
+
+[secrets]
+admin_password   = "ev+4KsZymMwtzSI1CbCX67CsOdhHTPJh1qYXgW5WFed6FXcNKE/g8FonoXHS3NwUggxFFE0nIOtMKsgFvUpSN0IYx8ZQ7+wAErcebPczSWC5JZjlMBH7k8LgFF0dWTOAyZlAQasWRmYaeyHuBQdoZ6xlXqsLkfKMOykgYAitTcvYwBtGugfFThOS5zZlaLSW5O3i5ZiBj5tV55nHtvjAqlBwKUbDzuWuK2SD+qLd+FHaXk7c4Alhf9lOvm5fSCuZMVkx2ULWaSxSHqxDhx4pZEYBLFeJp/6FckJmMJgO7OtBoNJudt+E1fY2CFvcf+d0UHMUAH45682w1CqEwnLU9g=="
+keystore_password   = "fattXRwg25ADl3k3Ky29sOUHNYGv0FlBdDIRiVCeQ29jIpFa7uYExD1BK1qBSy4DALYib7W1VCMGqqYKYx9s/H3pJNKy5SuJOP2h+2l1yALNqFKbWLQUDptoEvczO+LLnBItN0D07TR5nv4zjeLk/87vLOsKa7j7IlZs4eCdipMjuePmZPQfItn8NTmhzK46qsNhuxfzodAEQ/05ri0hgsNZ5bkpOcKcvAU8G4BmzZdGVVion2RyBX/FQZlEuuDYTdohd4UyLK/0kIAlPjZDDF0xuMDCXBV4PLfOqZ52Q3DnI7JfDpMQGq9cDN0NOlbHr8AUt3cSGaikYsbpSWQaUA=="
+truststore_password   = "mK6PxxZHR/AZzXpca84/NZ246+U2aRImSxdiPBuWPYl6J9IuAPS1kHzIMGCmyliL9FtSJRyCN/OGbOskHmXp8pM4nc34ejdKhTPylsQOO/dH8LRSWrHgXSnGGutJcxUQ8GYeYx7xp1+TBVILkS63gRq2vgB+Q3abcL+1dknPaFyKTiE3rSC1h0dZRkA+8wPP+7LY4OkKABDSPtVN7bpkOnD+uEbd048MXaopRagBxapBJd+YBViPJD+K0EgMTul73XUyoXURYsZRvfjizL871U0sf8JrjtITSiEByxDVwMph7pd8G8Mbm9cHrTrP/NSSK8B8YcvLKRwpfJFy+TnFdQ=="
+key_password   = "RkdX9HREoGGuBxYQBbCs3u6Fs95YtFJ7TqJS3LM2UpTZ1gTDltAugWKhAMAQvr8XPj67E37OAN+54FnVqw24t6Vbv9n/p9BMtwEp9okDTe2HL28lPROFSjEAtpFFsqgsKIOyNP7f2HtllFKgBwCAhFEV65l/Q6xTa0n/4dQMXB9ZnKznWhbalwRAgaJEwFmqueMy1qQBRvHOWXGVJA7H+6QlKR70qB3NHHlefU8tlugnnNzCnvwxEGo87EN0DWwyMpXSjHsiiGy+yPKnw72K47x/+mccdu8cgHeRBwx+8SCHRxs+xOXWSCTy72qtm87y+t+/sWgY5lGKtbujZx0oHw=="
+"log4j.appender.LOGEVENT.password"  = "mUnlaIdBdcwXY5S9b3mIj65UlU5ml4Zx7e36iIPxyeUubw8HroPHz0FSSaZQLS+IFez2ING5az1CKQQIVJvk7BZwK5meVSIho7Y5Wx2UzvG31/cjRSpBrYEsXuCsk93IJd5sSeBEN9lF9hs1YdqMJTE8zmlYcEX9/ud+BpPVjh3w44L/Sy9i99AAFbiQgqpg2nycSTtTsXcmgOyA7krQWLmyHbNblU14gsSmRHKaGc0zMKpPjhsZ5tweYJtLfFeweavi4yu/7XbJ5FpHh+bx+kSAgbjNOqHUQU16VnHo88gbpitml+K6Dq8uCpAOMdhDonKSFb1lbAirupO8DQiriA=="
+db_password   = "CvSWXl01sogYR+pIOUcdpQ0DU9vkoXAFyoyDGHY9P7/BM3qrerWo84wEIGZxWJaYos0TaFf7KRr8noodFTDaaLCfkWIRg2QnTwJ0Jf/qAgN/mEBvI6huun91ZiEY76ImMGXfSYX1gC7mvJ9akYcsKKMoZtesUgVYDIu2PatvvtFUDVdO7gyJToXNWkf/qlnZQziW1m4uRxh1EHmTUXLl7du8Zhpx1eXX41FlzbZzYQV5vYYkOMUfM9uOlXoWbRDL5mi4IidbRW1jod/2gaStLHoYWzTIEb79XkpNHq/XDAFJhsLZIS5dDGAPm0YGMmhgcu4MbFFaXp8pFgCQQST0LA=="
