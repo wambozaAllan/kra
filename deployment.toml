@@ -38,11 +38,11 @@ port = "5432"
 [realm_manager]
 data_source = "WSO2USER_DB"
 
-[bps_database.config]
-url = "jdbc:postgresql://10.180.1.156:5432/bps_db"
-username = "iamqa_user"
-password = "$secret{db_password}"
-driver = "org.postgresql.Driver"
+#[bps_database.config]
+#url = "jdbc:postgresql://10.180.1.156:5432/bps_db"
+#username = "iamqa_user"
+#password = "$secret{db_password}"
+#driver = "org.postgresql.Driver"
 
 [keystore.primary]
 file_name = "wso2carbon.jks"
