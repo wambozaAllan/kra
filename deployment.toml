@@ -92,6 +92,10 @@ exposed_headers = [ "Location" ]
 [config_data]
 path = "/_system/is_as_km/config"
 
+# allow edit of system applications like myaccount
+[system_applications]
+read_only_apps = []
+
 #############################################
 
 #disable fido features
