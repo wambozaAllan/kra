@@ -38,11 +38,11 @@ port = "5432"
 [realm_manager]
 data_source = "WSO2USER_DB"
 
-#[bps_database.config]
-#url = "jdbc:postgresql://10.180.1.156:5432/bps_db"
-#username = "iamqa_user"
-#password = "$secret{db_password}"
-#driver = "org.postgresql.Driver"
+[bps_database.config]
+url = "jdbc:postgresql://10.180.1.156:5432/bps_db_qa"
+username = "iamqa_user"
+password = "$secret{db_password}"
+driver = "org.postgresql.Driver"
 
 [keystore.primary]
 file_name = "wso2carbon.jks"
@@ -96,6 +96,11 @@ path = "/_system/is_as_km/config"
 [system_applications]
 read_only_apps = []
 
+# allow different clock time difference between the clients and the server
+[myaccount]
+idp_configs.clockTolerance = 7200
+debug.enable = true
+
 #############################################
 
 #disable fido features
@@ -121,9 +126,6 @@ TokenExpiryTime = 30
 [transport.https.sslHostConfig.properties]
 protocols="TLSv1.2"
 ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF"
-
-#[system_applications]
-#read_only_apps = []
 
 #custom
 #session timeout added
